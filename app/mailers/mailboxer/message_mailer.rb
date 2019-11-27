@@ -17,6 +17,7 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
     set_subject(message)
     mail :to => receiver.send(Mailboxer.email_method, message),
          :subject => t('mailboxer.message_mailer.subject_new', :subject => @subject),
+         :template_path => 'message_mailer',
          :template_name => 'new_message_email'
   end
 
@@ -27,6 +28,7 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
     set_subject(message)
     mail :to => receiver.send(Mailboxer.email_method, message),
          :subject => t('mailboxer.message_mailer.subject_reply', :subject => @subject),
+         :template_path => 'message_mailer',
          :template_name => 'reply_message_email'
   end
 end
